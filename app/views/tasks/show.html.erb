@@ -1,0 +1,19 @@
+<h1><%= @task.title %></h1>
+
+<p>
+  <strong>Détails:</strong>
+  <%= @task.details %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <% if @task.completed %>
+    <span style="color: green;">Complétée</span>
+  <% else %>
+    <span style="color: red;">Non complétée</span>
+  <% end %>
+</p>
+
+<%= link_to 'Retour à la liste', tasks_path %>
+<%= link_to 'Éditer', edit_task_path(@task) %>
+<%= link_to 'Supprimer', task_path(@task), data: {turbo_method: :delete, turbo_confirm: 'Êtes-vous sûr?'}  %>

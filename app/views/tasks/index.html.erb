@@ -1,0 +1,17 @@
+<h1>Liste des tâches</h1>
+
+<ul>
+  <% @tasks.each do |task| %>
+    <li>
+      <strong><%= link_to task.title, task_path(task) %></strong><br>
+      <%= task.details %><br>
+      <% if task.completed %>
+        <span style="color: green;">Complétée</span>
+      <% else %>
+        <span style="color: red;">Non complétée</span>
+      <% end %>
+      <%= link_to 'Éditer', edit_task_path(task) %> |
+
+    </li>
+  <% end %>
+</ul>
